@@ -1,0 +1,9 @@
+*
+
+!.gitignore
+!COPYING
+!README.md
+
+!.clang-format
+!.clangd
+!ruff.toml

@@ -8,3 +8,6 @@
 !ruff.toml
 !.clangd
 !.clang-tidy
+
+!xmake.lua
+!init.py

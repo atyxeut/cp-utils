@@ -1,2 +1,17 @@
+Diagnostics:
+  UnusedIncludes: None
+  Suppress: [
+    misc-unused-alias-decls,
+    misc-unused-using-decls,
+    type_unsupported,
+    shift-op-parentheses
+  ]
+
 CompileFlags:
-  Add: [-std=c++23]
+  Add: [
+    -std=c++23,
+    -pedantic-errors,
+    -Wformat=2,
+    -Wfloat-equal,
+    -Wuninitialized
+  ]

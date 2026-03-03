@@ -11,3 +11,11 @@
 
 !xmake.lua
 !init.py
+
+!include
+!include/.clangd
+!include/all.hpp
+!include/always.hpp
+
+!include/util
+!include/util/*

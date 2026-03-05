@@ -1,0 +1,15 @@
+Language: Cpp
+Standard: Latest
+
+ColumnLimit: 1000000000
+IndentWidth: 0
+ContinuationIndentWidth: 0
+UseTab: Never
+LineEnding: LF
+IndentPPDirectives: None
+
+MaxEmptyLinesToKeep: 0
+KeepEmptyLines:
+  AtEndOfFile: false
+  AtStartOfBlock: false
+  AtStartOfFile: false

@@ -22,3 +22,6 @@
 
 !template
 !template/*
+
+!preprocessor
+!preprocessor/*

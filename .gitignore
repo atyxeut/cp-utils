@@ -17,6 +17,9 @@
 !include/all.hpp
 !include/always.hpp
 
+!include/macro
+!include/macro/*
+
 !include/util
 !include/util/*
 

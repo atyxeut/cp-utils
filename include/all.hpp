@@ -15,4 +15,6 @@
 
 #pragma once
 
+#include <macro/is_in_debug_mode.hpp>
+
 #include <always.hpp>

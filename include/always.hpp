@@ -83,7 +83,7 @@ struct I6_ : I4_
 {
 };
 
-template <class T, std::size_t N>
+template <class T, size_t N>
 struct I6_<array<T, N>> : I5_
 {
 };

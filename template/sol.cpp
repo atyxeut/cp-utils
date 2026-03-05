@@ -118,7 +118,7 @@ int main()
 #else
   solve();
 #endif // IS_ONE_INPUT_MULTIPLE_TESTS
-} // end of main()
+}
 
 void solve()
 {

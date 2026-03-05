@@ -13,7 +13,7 @@ int main()
   // cin >> t;
   while (t--)
     solve();
-} // end of main()
+}
 
 void solve()
 {

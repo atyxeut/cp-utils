@@ -119,9 +119,20 @@ def main():
   expanded_code = expand(sol_cpp_path.resolve())
 
   if argv.target == "gcc":
-    main_fn_end_mark = "} // end of main()\n"
-    main_fn_end_pos = expanded_code.find(main_fn_end_mark) + len(main_fn_end_mark)
 
+    def get_main_fn_end():
+      left_brace_cnt = 1
+      pos = expanded_code.find("{", expanded_code.find("int main()")) + 1
+      while left_brace_cnt != 0:
+        if expanded_code[pos] == "{":
+          left_brace_cnt += 1
+        elif expanded_code[pos] == "}":
+          left_brace_cnt -= 1
+        pos += 1
+
+      return pos
+
+    main_fn_end_pos = get_main_fn_end()
     upper = remove_unecessary_chunks(expanded_code[:main_fn_end_pos])
 
     macro_defs = ""
@@ -139,7 +150,7 @@ def main():
 
     beginning = "#include <bits/stdc++.h>\n\n" + "using namespace std;\n\n"
     lib_description = "// library from: https://github.com/atyxeut/cp-utils\n"
-    expanded_code = beginning + lib_description + upper + expanded_code[main_fn_end_pos:]
+    expanded_code = beginning + lib_description + upper + expanded_code[main_fn_end_pos:].lstrip()
 
   sub_cpp_path.write_text(expanded_code)
 

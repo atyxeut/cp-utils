@@ -138,7 +138,7 @@ BraceWrapping:
   AfterStruct: true
   AfterUnion: true
   AfterEnum: true
-  BeforeLambdaBody: true
+  BeforeLambdaBody: false
   BeforeElse: true
   BeforeCatch: true
   SplitEmptyFunction: true

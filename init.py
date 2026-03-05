@@ -102,7 +102,9 @@ def generate_build_folder():
   subprocess.run(["xmake", "project", "-k", "compile_commands", "--outputdir=build"], text=True, stdout=subprocess.PIPE)
 
   build_test_target_name = "build-test"
-  build_info = subprocess.run(["xmake", "--rebuild", "-v", build_test_target_name], text=True, stdout=subprocess.PIPE).stdout.split("\n")
+  build_info = subprocess.run(
+    ["xmake", "--rebuild", "-v", build_test_target_name], text=True, stdout=subprocess.PIPE
+  ).stdout.split("\n")
 
   Path("build/sol_mtime.txt").touch(exist_ok=True)
 
@@ -119,7 +121,9 @@ def generate_build_folder():
   remove(Path(target_exe_path_str))
 
   last_slash_idx = target_exe_path_str.rfind("/")
-  Path("build/exe_dir.txt").write_text(target_exe_path_str[: last_slash_idx if last_slash_idx != -1 else target_exe_path_str.rfind("\\")])
+  Path("build/exe_dir.txt").write_text(
+    target_exe_path_str[: last_slash_idx if last_slash_idx != -1 else target_exe_path_str.rfind("\\")]
+  )
 
 
 def main():

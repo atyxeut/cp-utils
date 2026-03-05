@@ -13,20 +13,22 @@
 -- You should have received a copy of the GNU General Public License
 -- along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-if is_host("windows") then
-  set_config("plat", "mingw")
-  set_toolchains("gcc")
-elseif is_host("linux") then
-  set_toolchains("gcc")
-elseif is_host("macosx") then
-  -- gcc-14 from Homebrew
-  set_toolset("cxx", "/usr/local/opt/gcc@14/bin/g++-14") -- `usr` is the username
-  set_toolset("ld", "/usr/local/opt/gcc@14/bin/g++-14")  -- `usr` is the username
-end
-
 set_config("builddir", "build")
+
 set_languages("cxx23") -- the project only requires C++11, change it if you want
 add_includedirs("include")
+
+set_toolchains("gcc")
+
+if is_host("windows") then
+  set_config("plat", "mingw")
+elseif is_host("macosx") then
+  -- gcc-14 from Homebrew
+  local gcc_path = "/usr/local/opt/gcc@14/bin/g++-14" --`usr` is the username
+  -- `--query-driver=/usr/local/opt/gcc@14/bin/g++-14` must be added to clangd's arguments to make it work
+  set_toolset("cxx", gcc_path)
+  set_toolset("ld", gcc_path)
+end
 
 target("build-test")
   set_default(false)

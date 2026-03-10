@@ -36,10 +36,10 @@ using f128 = __float128;
 
 // I*_, J*_, K*_, L*_, M*_, N*_, O*_, P*_: identifiers that are only used internally
 // already used:
-// I0_ ~ I6_
+// I0_ ~ I7_
 
 template <class T>
-using lim_t = numeric_limits<T>;
+using I7_ = numeric_limits<T>;
 
 template <bool B, class T = void>
 using I0_ = typename enable_if<B, T>::type;
@@ -59,7 +59,7 @@ struct I2_<T, D, d...> : I2_<typename I2_<T, d...>::t, D>
 };
 
 template <class T, int... D>
-using md_array = typename I2_<T, D...>::t;
+using mdarr = typename I2_<T, D...>::t;
 
 template <class T, int C>
 struct I3_ : I3_<typename I3_<T, C - 1>::t, 1>
@@ -73,7 +73,7 @@ struct I3_<T, 1>
 };
 
 template <class T, int C>
-using md_vector = typename I3_<T, C>::t;
+using mdvec = typename I3_<T, C>::t;
 
 using I4_ = false_type;
 using I5_ = true_type;
@@ -108,7 +108,7 @@ vector<E> make_vector(D s, const T& v)
 }
 
 template <class E, class D, class... T, int N = sizeof...(T)>
-I0_<N, md_vector<E, N>> make_vector(D s, T&&... a)
+I0_<N, mdvec<E, N>> make_vector(D s, T&&... a)
 {
-  return vector<md_vector<E, N - 1>>(s, make_vector<E>(forward<T>(a)...));
+  return vector<mdvec<E, N - 1>>(s, make_vector<E>(forward<T>(a)...));
 }

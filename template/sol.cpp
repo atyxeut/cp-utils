@@ -108,8 +108,8 @@ void solve();
 
 int main()
 {
-  ios::sync_with_stdio(false);
-  cin.tie(nullptr);
+  ios::sync_with_stdio(0);
+  cin.tie(0);
 #if IS_ONE_INPUT_MULTIPLE_TESTS
   int t;
   is >> t;

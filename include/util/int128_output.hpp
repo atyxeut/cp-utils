@@ -29,19 +29,16 @@ I1_& operator <<(I1_& o, u128 n)
 
   string b;
   for (; n; n /= 10)
-    b += char(n % 10 + '0');
+    b += n % 10 + '0';
   reverse(b.begin(), b.end());
-
   return o << b;
 }
 
 I1_& operator <<(I1_& o, i128 n)
 {
-  if (n == lim_t<i128>::min())
+  if (n == I7_<i128>::min())
     return o << '-' << u128(n);
-
   if (n < 0)
     return o << '-' << u128(-n);
-
   return o << u128(n);
 }

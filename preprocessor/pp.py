@@ -44,7 +44,7 @@ custom_header_include_path = Path("include").resolve()
 header_match_pattern = re.compile(r"^#include\s*<(.+)>\s*\n")  # match `#include <xxx>`
 
 headers_to_ignore = ["bits/stdc++.h"]
-lines_to_ignore = ["", "#pragma once", "using namespace std;"]
+lines_to_ignore = ["#pragma once", "using namespace std;"]
 
 
 def expand(cur_file_path: Path):
@@ -129,7 +129,6 @@ def main():
         elif expanded_code[pos] == "}":
           left_brace_cnt -= 1
         pos += 1
-
       return pos
 
     main_fn_end_pos = get_main_fn_end()
@@ -145,7 +144,6 @@ def main():
     upper_code_before_pp_path.write_text(macro_defs + upper)
     subprocess.run(["g++", "-E", "-P", "-o", sub_cpp_path, upper_code_before_pp_path])
     subprocess.run(["clang-format", "-style=file:preprocessor/.clang-format-pp", "-i", sub_cpp_path])
-
     upper = remove_unecessary_white_characters(list(sub_cpp_path.read_text()))
 
     beginning = "#include <bits/stdc++.h>\n\n" + "using namespace std;\n\n"

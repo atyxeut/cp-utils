@@ -81,7 +81,7 @@ IndentGotoLabels: false
 
 # function
 AlignAfterOpenBracket: BlockIndent
-AllowShortFunctionsOnASingleLine: Inline
+AllowShortFunctionsOnASingleLine: None
 BinPackArguments: true
 AllowAllArgumentsOnNextLine: true
 BinPackParameters: BinPack

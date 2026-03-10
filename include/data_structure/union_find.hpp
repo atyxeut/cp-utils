@@ -15,8 +15,39 @@
 
 #pragma once
 
-#include <macro/is_in_debug_mode.hpp>
+#include <numeric>
+#include <vector>
 
-#include <always.hpp>
+using namespace std;
 
-#include <data_structure/union_find.hpp>
+struct dsu
+{
+  vector<int> f, s;
+
+  dsu(int n) : f(n), s(n, 1)
+  {
+    iota(f.begin(), f.end(), 0);
+  }
+
+  int find(int x)
+  {
+    return x != f[x] ? f[x] = find(f[x]) : x;
+  }
+
+  void merge(int x, int y)
+  {
+    x = find(x);
+    y = find(y);
+    if (x != y) {
+      if (s[x] < s[y])
+        swap(x, y);
+      f[y] = x;
+      s[x] += s[y];
+    }
+  }
+
+  bool is_connected(int x, int y)
+  {
+    return find(x) == find(y);
+  }
+};

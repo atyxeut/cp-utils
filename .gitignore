@@ -12,6 +12,12 @@
 !xmake.lua
 !init.py
 
+!preprocessor
+!preprocessor/*
+
+!template
+!template/*
+
 !include
 !include/.clangd
 !include/all.hpp
@@ -23,8 +29,5 @@
 !include/util
 !include/util/*
 
-!template
-!template/*
-
-!preprocessor
-!preprocessor/*
+!include/data_structure
+!include/data_structure/*

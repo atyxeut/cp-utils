@@ -16,17 +16,18 @@
 #pragma once
 
 #include <numeric>
-#include <vector>
+
+#include <always.hpp>
 
 using namespace std;
 
 struct union_find
 {
-  vector<int> f, s;
+  I8_<int> f, s;
 
   union_find(int n) : f(n), s(n, 1)
   {
-    iota(f.begin(), f.end(), 0);
+    iota(begin(f), end(f), 0);
   }
 
   int find(int x)

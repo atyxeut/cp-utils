@@ -19,7 +19,7 @@ import time
 from pathlib import Path
 
 # > python3 run.py
-#   1. execute preprocessor/pp.py, gcc -r are passed to it, you can choose whether to pass -m
+#   1. execute preprocessor/pp.py, -t gcc -r are passed to it, you can choose whether to pass -m
 #   2. for every xxx.in/xxx.out pair from `testdata_dir_path`, use the content of xxx.in as input,
 #      test if the output of sol.cpp is the same as the content of xxx.out (after removing trailing white characters), write the infomation into `log_txt_path`
 parser = argparse.ArgumentParser(add_help=False)
@@ -171,7 +171,7 @@ def main():
   if sol_modify_time_prev != sol_modify_time_now:
     sol_mtime_path.write_text(sol_modify_time_now)
 
-    pp_args_list = ["gcc", "-r"]
+    pp_args_list = ["-t", "gcc", "-r"]
     if argv.multiple:
       pp_args_list.append("-m")
     subprocess.run(["python3", "preprocessor/pp.py"] + pp_args_list)

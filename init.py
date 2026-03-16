@@ -21,9 +21,6 @@ from pathlib import Path
 # > python3 init.py
 #   create necessary folders and files for future use, if those folders and files already exist, then nothing happens
 parser = argparse.ArgumentParser(add_help=False)
-# > python3 init.py -b
-#   recreate .xmake, build folder
-parser.add_argument("-b", "--build", action="store_true")
 # > python3 init.py -t count
 #                        ↑ can be empty, defaults to 0, setting a value < 0 is equivalent to setting 0
 #                          can be floating-point numbers, e.g. 1e2
@@ -102,9 +99,7 @@ def generate_build_folder():
   subprocess.run(["xmake", "project", "-k", "compile_commands", "--outputdir=build"], text=True, stdout=subprocess.PIPE)
 
   build_test_target_name = "build-test"
-  build_info = subprocess.run(
-    ["xmake", "--rebuild", "-v", build_test_target_name], text=True, stdout=subprocess.PIPE
-  ).stdout.split("\n")
+  build_info = subprocess.run(["xmake", "--rebuild", "-v", build_test_target_name], text=True, stdout=subprocess.PIPE).stdout.split("\n")
 
   Path("build/sol_mtime.txt").touch(exist_ok=True)
 
@@ -121,24 +116,17 @@ def generate_build_folder():
   remove(Path(target_exe_path_str))
 
   last_slash_idx = target_exe_path_str.rfind("/")
-  Path("build/exe_dir.txt").write_text(
-    target_exe_path_str[: last_slash_idx if last_slash_idx != -1 else target_exe_path_str.rfind("\\")]
-  )
+  Path("build/exe_dir.txt").write_text(target_exe_path_str[: last_slash_idx if last_slash_idx != -1 else target_exe_path_str.rfind("\\")])
 
 
 def main():
-  if argv.build:
-    generate_build_folder()
-  elif argv.test or argv.test == 0:
+  generate_build_folder()
+  if argv.test or argv.test == 0:
     generate_test_folder(int(argv.test))
   else:
     generate_cpp_files()
-
     if not test_data_dir_path.exists():
       generate_test_folder()
-
-    if not Path(".xmake").exists() or not Path("build").exists():
-      generate_build_folder()
 
 
 if __name__ == "__main__":

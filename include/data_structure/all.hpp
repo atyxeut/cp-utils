@@ -15,4 +15,4 @@
 
 #pragma once
 
-#include <data_structure/union_find.hpp>
+#include <data_structure/union_find/all.hpp>

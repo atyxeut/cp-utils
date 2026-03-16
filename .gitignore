@@ -22,6 +22,7 @@
 !include/.clangd
 !include/all.hpp
 !include/always.hpp
+!include/customize.hpp
 
 !include/macro
 !include/macro/*
@@ -33,4 +34,4 @@
 !include/util/*
 
 !include/data_structure
-!include/data_structure/*
+!include/data_structure/**

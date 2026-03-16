@@ -23,16 +23,20 @@ using namespace std;
 
 struct union_find
 {
-  I8_<int> f, s;
+  I8_<int> f;
 
-  union_find(int n) : f(n), s(n, 1)
+  union_find(int n) : f(n, -1)
   {
-    iota(begin(f), end(f), 0);
+  }
+
+  int count(int x)
+  {
+    return -f[x];
   }
 
   int find(int x)
   {
-    return x != f[x] ? f[x] = find(f[x]) : x;
+    return f[x] < 0 ? x : f[x] = find(f[x]);
   }
 
   void unite(int x, int y)
@@ -40,14 +44,14 @@ struct union_find
     x = find(x);
     y = find(y);
     if (x != y) {
-      if (s[x] < s[y])
+      if (f[x] < f[y])
         swap(x, y);
-      f[y] = x;
-      s[x] += s[y];
+      f[y] += f[x];
+      f[x] = y;
     }
   }
 
-  bool is_connected(int x, int y)
+  bool is_union(int x, int y)
   {
     return find(x) == find(y);
   }

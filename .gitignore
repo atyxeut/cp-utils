@@ -11,6 +11,7 @@
 
 !xmake.lua
 !init.py
+!run.py
 
 !preprocessor
 !preprocessor/*

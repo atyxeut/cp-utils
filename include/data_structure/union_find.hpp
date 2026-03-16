@@ -20,11 +20,11 @@
 
 using namespace std;
 
-struct dsu
+struct union_find
 {
   vector<int> f, s;
 
-  dsu(int n) : f(n), s(n, 1)
+  union_find(int n) : f(n), s(n, 1)
   {
     iota(f.begin(), f.end(), 0);
   }
@@ -34,7 +34,7 @@ struct dsu
     return x != f[x] ? f[x] = find(f[x]) : x;
   }
 
-  void merge(int x, int y)
+  void unite(int x, int y)
   {
     x = find(x);
     y = find(y);

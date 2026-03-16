@@ -15,8 +15,9 @@
 
 #pragma once
 
-#include <macro/is_in_debug_mode.hpp>
+#include <macro/all.hpp>
 
 #include <always.hpp>
-
-#include <data_structure/union_find.hpp>
+#include <data_structure/all.hpp>
+#include <math/all.hpp>
+#include <util/all.hpp>

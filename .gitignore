@@ -26,6 +26,9 @@
 !include/macro
 !include/macro/*
 
+!include/math
+!include/math/*
+
 !include/util
 !include/util/*
 

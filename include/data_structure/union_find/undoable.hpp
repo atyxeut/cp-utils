@@ -15,37 +15,4 @@
 
 #pragma once
 
-#include <numeric>
-
 #include <always.hpp>
-
-using namespace std;
-
-struct union_find {
-  I8_<int> f;
-
-  union_find(int n) : f(n, -1) {}
-
-  int count(int x) {
-    return -f[x];
-  }
-
-  int find(int x) {
-    return f[x] < 0 ? x : f[x] = find(f[x]);
-  }
-
-  void unite(int x, int y) {
-    x = find(x);
-    y = find(y);
-    if (x != y) {
-      if (f[x] < f[y])
-        swap(x, y);
-      f[y] += f[x];
-      f[x] = y;
-    }
-  }
-
-  bool connected(int x, int y) {
-    return find(x) == find(y);
-  }
-};

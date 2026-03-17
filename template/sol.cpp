@@ -88,8 +88,7 @@ auto& is = cin;
 
 #if IS_DEBUG_MODE
 template <class... T>
-void logerr(T... _)
-{
+void logerr(T... _) {
 #if __cplusplus >= 201703L
   ((cerr << _), ...);
 #else
@@ -107,8 +106,7 @@ void solve();
 
 /** other custom header **/
 
-int main()
-{
+int main() {
   ios::sync_with_stdio(0);
   cin.tie(0);
 #if IS_ONE_INPUT_MULTIPLE_TESTS
@@ -121,7 +119,6 @@ int main()
 #endif // IS_ONE_INPUT_MULTIPLE_TESTS
 }
 
-void solve()
-{
+void solve() {
   
 }

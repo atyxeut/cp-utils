@@ -17,20 +17,6 @@ KeepEmptyLines:
 BreakAdjacentStringLiterals: true
 SortUsingDeclarations: Never
 
-# penalty, higher penalty = less priority
-PenaltyExcessCharacter: 600
-PenaltyBreakAssignment: 1000
-PenaltyBreakBeforeFirstCallParameter: 100
-PenaltyBreakBeforeMemberAccess: 5
-PenaltyBreakComment: 0
-PenaltyBreakFirstLessLess: 30
-PenaltyBreakOpenParenthesis: 10
-PenaltyBreakScopeResolution: 10000
-PenaltyBreakString: 500
-PenaltyBreakTemplateDeclaration: 3
-PenaltyIndentedWhitespace: 1
-PenaltyReturnTypeOnItsOwnLine: 20
-
 # comment
 AlignTrailingComments: Leave
 SpacesBeforeTrailingComments: 1
@@ -49,14 +35,8 @@ SortIncludes: CaseInsensitive
 # declaration / initialization / assignment
 AlignConsecutiveDeclarations:
   Enabled: false
-  AcrossEmptyLines: false
-  AcrossComments: false
 AlignConsecutiveAssignments:
   Enabled: false
-  AcrossEmptyLines: false
-  AcrossComments: false
-  AlignCompound: true
-  PadOperators: true
 PointerAlignment: Left
 ReferenceAlignment: Left
 AlignArrayOfStructures: Right
@@ -75,13 +55,12 @@ IndentCaseBlocks: false
 AllowShortCaseLabelsOnASingleLine: false
 AlignConsecutiveShortCaseStatements:
   Enabled: false
-  AlignCaseColons: true
 AllowShortLoopsOnASingleLine: false
 IndentGotoLabels: false
 
 # function
 AlignAfterOpenBracket: BlockIndent
-AllowShortFunctionsOnASingleLine: None
+AllowShortFunctionsOnASingleLine: Empty
 BinPackArguments: true
 AllowAllArgumentsOnNextLine: true
 BinPackParameters: BinPack
@@ -108,42 +87,26 @@ AlignConsecutiveBitFields:
 BitFieldColonSpacing: Both
 AllowShortEnumsOnASingleLine: false
 
-#namespace / extern / export
-IndentExternBlock: false
-FixNamespaceComments: true
-ShortNamespaceLines: 0
-NamespaceIndentation: None
-IndentExportBlock: false
-CompactNamespaces: true
-WrapNamespaceBodyWithEmptyLines: Always
-AllowShortNamespacesOnASingleLine: false
-
 # template
 SpaceAfterTemplateKeyword: true
-BreakBeforeTemplateCloser: true
 BreakTemplateDeclarations: Leave
-BreakBeforeConceptDeclarations: Always
-IndentRequiresClause: true
-RequiresExpressionIndentation: OuterScope
-AllowShortCompoundRequirementOnASingleLine: true
-RequiresClausePosition: OwnLine
 
 # parentheses / brace
 BreakBeforeBraces: Custom
 BraceWrapping:
   AfterControlStatement: Never
   AfterExternBlock: false
-  AfterFunction: true
-  AfterClass: true
-  AfterStruct: true
-  AfterUnion: true
-  AfterEnum: true
+  AfterFunction: false
+  AfterClass: false
+  AfterStruct: false
+  AfterUnion: false
+  AfterEnum: false
   BeforeLambdaBody: false
-  BeforeElse: true
-  BeforeCatch: true
-  SplitEmptyFunction: true
-  SplitEmptyRecord: true
-  SplitEmptyNamespace: true
+  BeforeElse: false
+  BeforeCatch: false
+  SplitEmptyFunction: false
+  SplitEmptyRecord: false
+  SplitEmptyNamespace: false
 Cpp11BracedListStyle: true
 BinPackLongBracedList: true
 SpaceBeforeCpp11BracedList: true

@@ -4,8 +4,7 @@ using namespace std;
 
 void solve();
 
-int main()
-{
+int main() {
   ios::sync_with_stdio(0);
   cin.tie(0);
 
@@ -15,7 +14,6 @@ int main()
     solve();
 }
 
-void solve()
-{
+void solve() {
   
 }

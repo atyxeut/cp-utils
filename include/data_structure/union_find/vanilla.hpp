@@ -19,8 +19,6 @@
 
 #include <always.hpp>
 
-using namespace std;
-
 struct union_find {
   I8_<int> f;
 

@@ -2,6 +2,7 @@
 
 !.gitignore
 !COPYING
+!LICENSE
 !README.md
 
 !.clang-format

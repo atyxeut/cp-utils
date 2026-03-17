@@ -51,7 +51,7 @@ struct union_find
     }
   }
 
-  bool is_union(int x, int y)
+  bool connected(int x, int y)
   {
     return find(x) == find(y);
   }

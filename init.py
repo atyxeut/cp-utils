@@ -101,8 +101,6 @@ def generate_build_folder():
   build_test_target_name = "build-test"
   build_info = subprocess.run(["xmake", "--rebuild", "-v", build_test_target_name], text=True, stdout=subprocess.PIPE).stdout.split("\n")
 
-  Path("build/sol_mtime.txt").touch(exist_ok=True)
-
   for i in range(len(build_info)):
     if build_info[i].find("linking.") != -1:
       # see https://xmake.io/guide/basic-commands/build-targets.html#find-detailed-compilation-commands for the format of the log

@@ -164,17 +164,10 @@ def diff_mode(no_difference: bool = True):
 
 
 def main():
-  sol_mtime_path = Path("build/sol_mtime.txt")
-  sol_modify_time_prev = sol_mtime_path.read_text().rstrip()
-  sol_modify_time_now = str(Path("sol.cpp").stat().st_mtime_ns)
-
-  if sol_modify_time_prev != sol_modify_time_now:
-    sol_mtime_path.write_text(sol_modify_time_now)
-
-    pp_args_list = ["-t", "gcc", "-r"]
-    if argv.multiple:
-      pp_args_list.append("-m")
-    subprocess.run(["python3", "preprocessor/pp.py"] + pp_args_list)
+  pp_args_list = ["-t", "gcc", "-r"]
+  if argv.multiple:
+    pp_args_list.append("-m")
+  subprocess.run(["python3", "preprocessor/pp.py"] + pp_args_list)
 
   log_txt_path.write_text("")
 

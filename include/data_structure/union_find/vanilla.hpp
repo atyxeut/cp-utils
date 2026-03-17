@@ -15,18 +15,12 @@
 
 #pragma once
 
-#include <numeric>
-
 #include <always.hpp>
 
 struct union_find {
   I8_<int> f;
 
   union_find(int n) : f(n, -1) {}
-
-  int count(int x) {
-    return -f[x];
-  }
 
   int find(int x) {
     return f[x] < 0 ? x : f[x] = find(f[x]);
@@ -41,6 +35,10 @@ struct union_find {
       f[y] += f[x];
       f[x] = y;
     }
+  }
+
+  int size(int x) {
+    return -f[find(x)];
   }
 
   bool connected(int x, int y) {

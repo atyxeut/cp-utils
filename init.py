@@ -62,6 +62,8 @@ test_data_dir_path = Path("test/data")
 
 
 def generate_test_folder(cnt: int = 0):
+  test_dir_path.mkdir(exist_ok=True)
+
   if cnt <= 0:
     remove(test_data_dir_path)
     remove(test_dir_path / "log.txt")
@@ -118,13 +120,14 @@ def generate_build_folder():
 
 
 def main():
-  generate_build_folder()
   if argv.test or argv.test == 0:
     generate_test_folder(int(argv.test))
   else:
     generate_cpp_files()
     if not test_data_dir_path.exists():
       generate_test_folder()
+
+  generate_build_folder()
 
 
 if __name__ == "__main__":

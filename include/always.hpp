@@ -19,6 +19,7 @@
 #include <cstddef>
 #include <cstdint>
 #include <limits>
+#include <string>
 #include <vector>
 
 using namespace std;
@@ -37,7 +38,9 @@ using f128 = __float128;
 // I*_, J*_, K*_, L*_, M*_, N*_, O*_, P*_: identifiers that are only used internally
 // already used:
 // I0_ ~ I9_
-// Ia_
+// Ia_ ~ Ib_
+
+using Ib_ = string;
 
 template <bool B, class T = void>
 using I0_ = typename enable_if<B, T>::type;

@@ -26,7 +26,7 @@ I1_& operator <<(I1_& o, u128 n) {
   if (!n)
     return o << 0;
 
-  string b;
+  Ib_ b;
   for (; n; n /= 10)
     b += n % 10 + '0';
   reverse(b.begin(), b.end());

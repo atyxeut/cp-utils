@@ -15,6 +15,4 @@
 
 #pragma once
 
-#include <cstring>
-
-#include <always.hpp>
+#include <data_structure/trie/vanilla/all.hpp>

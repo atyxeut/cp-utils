@@ -15,4 +15,5 @@
 
 #pragma once
 
+#include <data_structure/trie/all.hpp>
 #include <data_structure/union_find/all.hpp>

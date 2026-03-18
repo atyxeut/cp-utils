@@ -15,6 +15,5 @@
 
 #pragma once
 
-#include <cstring>
-
-#include <always.hpp>
+#include <data_structure/trie/vanilla/dynamic.hpp>
+#include <data_structure/trie/vanilla/static.hpp>

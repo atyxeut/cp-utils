@@ -20,7 +20,7 @@
 #include <always.hpp>
 
 template <class F>
-class dynamic_trie {
+class trie {
   mdvec<int, 2> t;
   I8_<int> p, e;
 
@@ -41,7 +41,7 @@ class dynamic_trie {
   }
 
 public:
-  dynamic_trie(int M, int C) : t(M, I8_<int>(C)), p(M), e(M) {}
+  trie(int M, int C) : t(M, I8_<int>(C)), p(M), e(M) {}
 
   void insert(Ib_& S) {
     ++p[0];

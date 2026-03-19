@@ -20,7 +20,7 @@
 #include <always.hpp>
 
 template <int N, int C, class F>
-class trie {
+class inplace_trie {
   int t[N][C] {}, p[N] {}, e[N] {}, s = 0;
 
   F m;

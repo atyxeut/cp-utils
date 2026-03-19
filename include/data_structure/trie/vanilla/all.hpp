@@ -15,5 +15,5 @@
 
 #pragma once
 
-#include <data_structure/trie/vanilla/dynamic.hpp>
-#include <data_structure/trie/vanilla/static.hpp>
+#include <data_structure/trie/vanilla/flat.hpp>
+#include <data_structure/trie/vanilla/inplace.hpp>

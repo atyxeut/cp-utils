@@ -17,9 +17,14 @@
 
 #include <always.hpp>
 
+// W is an integral
 template <class W>
 struct weighted_union_find {
+  // if f[i] >= 0: f[i] is the set that i is in
+  // if f[i] < 0: i is the root of its set, and abs(f[i]) is the size of it
   I8_<int> f;
+
+  // w[i]: weight of i
   I8_<W> w;
 
   static constexpr W null = I7_<W>::max();

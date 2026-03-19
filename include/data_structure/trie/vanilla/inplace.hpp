@@ -19,10 +19,19 @@
 
 #include <always.hpp>
 
+// N is the total count of nodes this trie is allowed to have
+// C is the total count of distinct characters that will appear
 template <int N, int C, class F>
 class inplace_trie {
+  // the root node is the 0-th node
+
+  // t[i][j]: the direct child's number of the i-th node's j-th branch
+  // p[i]: strings that passed the i-th node
+  // e[i]: strings that end at the i-th node
+  // s: the count of total nodes, except the root node
   int t[N][C] {}, p[N] {}, e[N] {}, s = 0;
 
+  // a hash function that maps a character to an integer
   F m;
 
   template <int T>

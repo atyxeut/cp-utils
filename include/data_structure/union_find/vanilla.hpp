@@ -18,6 +18,8 @@
 #include <always.hpp>
 
 struct union_find {
+  // if f[i] >= 0: f[i] is the set that i is in
+  // if f[i] < 0: i is the root of its set, and abs(f[i]) is the size of it
   I8_<int> f;
 
   union_find(int n) : f(n, -1) {}
@@ -30,6 +32,7 @@ struct union_find {
     x = find(x);
     y = find(y);
     if (x != y) {
+      // let x always represent the smaller set
       if (f[x] < f[y])
         swap(x, y);
       f[y] += f[x];

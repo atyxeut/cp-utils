@@ -21,11 +21,19 @@
 
 template <class F>
 class trie {
+  // the root node is the 0-th node
+
+  // t[i][j]: the direct child's number of the i-th node's j-th branch
   mdvec<int, 2> t;
+
+  // p[i]: strings that passed the i-th node
+  // e[i]: strings that end at the i-th node
   I8_<int> p, e;
 
+  // the count of total nodes, except the root node
   int s = 0;
 
+  // a hash function that maps a character to an integer
   F m;
 
   template <int T>

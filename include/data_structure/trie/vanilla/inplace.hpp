@@ -25,11 +25,14 @@ template <int N, int C, class F>
 class inplace_trie {
   // the root node is the 0-th node
 
+  // let the object have static storage duration, e.g. be a global variable,
+  // so the members are all zero-initialized
+
   // t[i][j]: the direct child's number of the i-th node's j-th branch
   // p[i]: strings that passed the i-th node
   // e[i]: strings that end at the i-th node
   // s: the count of total nodes, except the root node
-  int t[N][C] {}, p[N] {}, e[N] {}, s = 0;
+  int t[N][C], p[N], e[N], s;
 
   // a hash function that maps a character to an integer
   F m;

@@ -15,23 +15,23 @@
 
 #pragma once
 
-#include <algorithm>
+#include <cstring>
 
 #include <always.hpp>
 
-template <class F>
+// N is the total count of nodes this trie is allowed to have
+// C is the total count of distinct characters that will appear
+template <int N, int C, class F>
 class trie {
   // the root node is the 0-th node
 
-  // t[i][j]: the direct child's number of the i-th node's j-th branch
-  mdvec<int, 2> t;
+  // let the object have static storage duration, e.g. be a global variable, so the members are all zero-initialized
 
+  // t[i][j]: the direct child's number of the i-th node's j-th branch
   // p[i]: strings that passed the i-th node
   // e[i]: strings that end at the i-th node
-  I8_<int> p, e;
-
-  // the count of total nodes, except the root node
-  int s = 0;
+  // s: the count of total nodes, except the root node
+  int t[N][C], p[N], e[N], s;
 
   // a hash function that maps a character to an integer
   F m;
@@ -49,7 +49,12 @@ class trie {
   }
 
 public:
-  trie(int M, int C) : t(M, I8_<int>(C)), p(M), e(M) {}
+  void clear() {
+    memset(t, 0, sizeof t);
+    memset(p, 0, sizeof p);
+    memset(e, 0, sizeof e);
+    s = 0;
+  }
 
   void insert(Ib_& S) {
     ++p[0];

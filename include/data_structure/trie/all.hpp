@@ -15,4 +15,4 @@
 
 #pragma once
 
-#include <data_structure/trie/vanilla/all.hpp>
+#include <data_structure/trie/vanilla.hpp>

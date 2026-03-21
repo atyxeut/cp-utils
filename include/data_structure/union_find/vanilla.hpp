@@ -24,9 +24,7 @@ struct union_find {
 
   union_find(int n) : f(n, -1) {}
 
-  int find(int x) {
-    return f[x] < 0 ? x : f[x] = find(f[x]);
-  }
+  int find(int x) { return f[x] < 0 ? x : f[x] = find(f[x]); }
 
   void unite(int x, int y) {
     x = find(x);
@@ -40,11 +38,7 @@ struct union_find {
     }
   }
 
-  int size(int x) {
-    return -f[find(x)];
-  }
+  int size(int x) { return -f[find(x)]; }
 
-  bool connected(int x, int y) {
-    return find(x) == find(y);
-  }
+  bool connected(int x, int y) { return find(x) == find(y); }
 };

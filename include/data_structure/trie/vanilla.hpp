@@ -25,7 +25,8 @@ template <int N, int C, class F>
 class trie {
   // the root node is the 0-th node
 
-  // let the object have static storage duration, e.g. be a global variable, so the members are all zero-initialized
+  // let the object have static storage duration, e.g. be a global variable,
+  // so the members are all zero-initialized
 
   // t[i][j]: the direct child's number of the i-th node's j-th branch
   // p[i]: strings that passed the i-th node
@@ -69,13 +70,8 @@ public:
     ++e[i];
   }
 
-  int count(Ib_& S) {
-    return I<0>(S);
-  }
-
-  int count_has_prefix(Ib_& S) {
-    return I<1>(S);
-  }
+  int count(Ib_& S) { return I<0>(S); }
+  int count_has_prefix(Ib_& S) { return I<1>(S); }
 
   void erase(Ib_& S) {
     if (count(S)) {

@@ -3,7 +3,7 @@
 # misc settings
 Language: Cpp
 Standard: Latest
-ColumnLimit: 100
+ColumnLimit: 120
 IndentWidth: 2
 ContinuationIndentWidth: 2
 UseTab: Never

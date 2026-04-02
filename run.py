@@ -93,7 +93,9 @@ def compare_output(usr_out: str, std_out: str):
 
 
 def normal_mode(tested_cnt: int = 0):
-  subprocess.run(["xmake"])
+  print("buiding...")
+  subprocess.run(["xmake"], stdout=subprocess.PIPE)
+  print(f"testing... see {log_txt_path}")
 
   for testcase in testdata_dir_path.glob("*.in"):
     testcase_in_file_path = testdata_dir_path / f"{testcase.stem}.in"
@@ -103,6 +105,7 @@ def normal_mode(tested_cnt: int = 0):
       continue
 
     tested_cnt += 1
+
     sol_output, sol_errout, sol_execution_time = execute(sol_exe_path, testcase_in_file_path.read_text())
     std_output = testcase_out_file_path.read_text()
 
@@ -122,11 +125,15 @@ def normal_mode(tested_cnt: int = 0):
           log_file.write("\n")
         log_file.write(f"test {tested_cnt} ({testcase_in_file_path.name}), {sol_execution_time:.3f}ms, failed:\n{comp_result}\n")
 
+  print("done")
+
 
 def diff_mode(no_difference: bool = True):
-  subprocess.run(["xmake", "build", "sol"])
-  subprocess.run(["xmake", "build", "std"])
-  subprocess.run(["xmake", "build", "gen"])
+  print("buiding...")
+  subprocess.run(["xmake", "build", "sol"], stdout=subprocess.PIPE)
+  subprocess.run(["xmake", "build", "std"], stdout=subprocess.PIPE)
+  subprocess.run(["xmake", "build", "gen"], stdout=subprocess.PIPE)
+  print(f"testing... see {log_txt_path}")
 
   for _ in range(int(argv.diff)):
 
@@ -161,6 +168,8 @@ def diff_mode(no_difference: bool = True):
 
   if no_difference:
     log_txt_path.write_text("no difference\n")
+
+  print("done")
 
 
 def main():

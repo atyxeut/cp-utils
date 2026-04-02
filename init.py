@@ -126,8 +126,7 @@ def main():
     generate_cpp_files()
     if not test_data_dir_path.exists():
       generate_test_folder()
-
-  generate_build_folder()
+    generate_build_folder()
 
 
 if __name__ == "__main__":

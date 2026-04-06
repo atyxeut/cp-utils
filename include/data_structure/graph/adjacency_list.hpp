@@ -98,7 +98,9 @@ public:
     for (; e; e = x[e])
       b[k++] = e;
     if (k) {
-      sort(b, b + k, [this, &c](int x, int y) { return c(T {g[x], w[x]}, T {g[y], w[y]}); });
+      sort(b, b + k, [this, &c](int x, int y) {
+        return c(T {g[x], w[x]}, T {g[y], w[y]});
+      });
       f[u] = b[0];
       for (int i = 0; i + 1 < k; ++i)
         x[b[i]] = b[i + 1];

@@ -19,20 +19,20 @@ import subprocess
 from pathlib import Path
 
 # > python3 pp.py
-#   expand all #include <***.hpp> directives in sol.cpp, output the result into sub.cpp
+# expand all #include <***.hpp> directives in sol.cpp, output the result into sub.cpp
 parser = argparse.ArgumentParser(add_help=False)
 # > python3 pp.py -t
-#   select the target compiler, -t gcc or -t msvc, defaults to gcc
-#   -t msvc when you want to debug your program in Visual Studio (only support template/sol.cpp)
+# select the target compiler, -t gcc or -t msvc, defaults to gcc
+# -t msvc when you want to debug your program in Visual Studio (only support template/sol.cpp)
 parser.add_argument("-t", "--target", default="gcc", choices=["gcc", "msvc"])
 # > python3 pp.py -m
-#   add `#define IS_ONE_INPUT_MULTIPLE_TESTS 1` at the beginning of sub.cpp
-#   see template/sol.cpp for the usage of this macro
+# add `#define IS_ONE_INPUT_MULTIPLE_TESTS 1` at the beginning of sub.cpp
+# see template/sol.cpp for the usage of this macro
 parser.add_argument("-m", "--multiple", action="store_true")
 # > python3 pp.py -r
-#   add `#define NDEBUG` at the beginning of sub.cpp
-#   used to disable C-style asserts (https://en.cppreference.com/w/cpp/error/assert.html),
-#     meanwhile also enable `#define IS_IN_DEBUG_MODE 0` from <macro/is_in_debug_mode.hpp>
+# add `#define NDEBUG` at the beginning of sub.cpp
+# used to disable C-style asserts (https://en.cppreference.com/w/cpp/error/assert.html), meanwhile also enable
+# `#define IS_IN_DEBUG_MODE 0` from <macro/is_in_debug_mode.hpp>
 parser.add_argument("-r", "--release", action="store_true")
 argv = parser.parse_args()
 
@@ -101,12 +101,12 @@ def remove_unecessary_chunks(code: str):
 
 
 def remove_unecessary_white_characters(code: list):
-  char_list = [";", ",", ":", "?", ".", "{", "}", "[", "]", "(", ")", ">", "<", "=", "!", "&", "|", "^", "+", "-", "*", "/", "%"]
+  char_set = ";,:?.{}[]()<>=!&|^+-*/%"
 
   for i in range(len(code)):
     if code[i] == "\n":
       code[i] = ""
-    elif code[i] in char_list:
+    elif code[i] in char_set:
       if i - 1 >= 0 and code[i - 1] == " ":
         code[i - 1] = ""
       if i + 1 < len(code) and code[i + 1] == " ":

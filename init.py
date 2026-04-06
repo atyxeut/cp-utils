@@ -19,13 +19,13 @@ import subprocess
 from pathlib import Path
 
 # > python3 init.py
-#   create necessary folders and files for future use, if those folders and files already exist, then nothing happens
+# create necessary folders and files for future use, if those folders and files already exist, then nothing happens
 parser = argparse.ArgumentParser(add_help=False)
 # > python3 init.py -t count
 #                        ↑ can be empty, defaults to 0, setting a value < 0 is equivalent to setting 0
 #                          can be floating-point numbers, e.g. 1e2
-#   if count is 0, reset test/data folder to its initial state
-#   if count > 0, create new xxx.in/xxx.out pairs to test/data folder
+# if count is 0, reset test/data folder to its initial state
+# if count > 0, create new xxx.in/xxx.out pairs to test/data folder
 parser.add_argument("-t", "--test", metavar="count", nargs="?", const=0, type=float)
 argv = parser.parse_args()
 
@@ -101,11 +101,14 @@ def generate_build_folder():
   subprocess.run(["xmake", "project", "-k", "compile_commands", "--outputdir=build"], text=True, stdout=subprocess.PIPE)
 
   build_test_target_name = "build-test"
-  build_info = subprocess.run(["xmake", "--rebuild", "-v", build_test_target_name], text=True, stdout=subprocess.PIPE).stdout.split("\n")
+  build_info = subprocess.run(
+    ["xmake", "--rebuild", "-v", build_test_target_name], text=True, stdout=subprocess.PIPE
+  ).stdout.split("\n")
 
   for i in range(len(build_info)):
     if build_info[i].find("linking.") != -1:
-      # see https://xmake.io/guide/basic-commands/build-targets.html#find-detailed-compilation-commands for the format of the log
+      # see https://xmake.io/guide/basic-commands/build-targets.html#find-detailed-compilation-commands
+      # for the format of the log
       linking_command = build_info[i + 1].split(" ")
       for part in linking_command:
         pos = part.find(build_test_target_name)
@@ -116,7 +119,9 @@ def generate_build_folder():
   remove(Path(target_exe_path_str))
 
   last_slash_idx = target_exe_path_str.rfind("/")
-  Path("build/exe_dir.txt").write_text(target_exe_path_str[: last_slash_idx if last_slash_idx != -1 else target_exe_path_str.rfind("\\")])
+  Path("build/exe_dir.txt").write_text(
+    target_exe_path_str[: last_slash_idx if last_slash_idx != -1 else target_exe_path_str.rfind("\\")]
+  )
 
 
 def main():

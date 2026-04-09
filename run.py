@@ -134,6 +134,7 @@ def normal_mode(tested_cnt: int = 0):
 
 def diff_mode(no_difference: bool = True):
   print("buiding...")
+  # must ensure that none of sol.cpp, std.cpp and gen.cpp is empty
   subprocess.run(["xmake", "build", "sol"], stdout=subprocess.PIPE)
   subprocess.run(["xmake", "build", "std"], stdout=subprocess.PIPE)
   subprocess.run(["xmake", "build", "gen"], stdout=subprocess.PIPE)

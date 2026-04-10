@@ -95,8 +95,7 @@ def compare_output(usr_out: str, std_out: str):
 
 
 def normal_mode(tested_cnt: int = 0):
-  print("buiding...")
-  subprocess.run(["xmake"], stdout=subprocess.PIPE)
+  subprocess.run(["xmake"])
   print(f"testing... see {log_txt_path}")
 
   for testcase in testdata_dir_path.glob("*.in"):
@@ -133,11 +132,10 @@ def normal_mode(tested_cnt: int = 0):
 
 
 def diff_mode(no_difference: bool = True):
-  print("buiding...")
   # must ensure that none of sol.cpp, std.cpp and gen.cpp is empty
-  subprocess.run(["xmake", "build", "sol"], stdout=subprocess.PIPE)
-  subprocess.run(["xmake", "build", "std"], stdout=subprocess.PIPE)
-  subprocess.run(["xmake", "build", "gen"], stdout=subprocess.PIPE)
+  subprocess.run(["xmake", "build", "sol"])
+  subprocess.run(["xmake", "build", "std"])
+  subprocess.run(["xmake", "build", "gen"])
   print(f"testing... see {log_txt_path}")
 
   for _ in range(int(argv.diff)):

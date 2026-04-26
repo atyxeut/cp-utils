@@ -18,14 +18,14 @@ import subprocess
 import time
 from pathlib import Path
 
-# > python3 run.py
+# > run.py
 # 1. execute preprocessor/pp.py, -t gcc -r are passed to it, you can choose whether to pass -m
 # 2. for every xxx.in/xxx.out pair from `testdata_dir_path`, use the content of xxx.in as input, test if the output of
 #    sol.cpp is the same as the content of xxx.out (after removing trailing white characters), write the information
 #    into `log_txt_path`
 parser = argparse.ArgumentParser(add_help=False)
 parser.add_argument("-m", "--multiple", action="store_true")
-# > python3 run.py -d count
+# > run.py -d count
 #                       ↑ 1. can be empty, the default value is 50
 #                         2. can be a float, e.g. 1e3
 #                         3. must be positive
@@ -35,7 +35,7 @@ parser.add_argument("-m", "--multiple", action="store_true")
 #    save the input and the output of std.cpp into `testdata_dir_path`, then write the information into `log_txt_path`,
 #    and terminate the loop
 parser.add_argument("-d", "--diff", metavar="count", nargs="?", const=50, type=float)
-# > python3 run.py -d count -s
+# > run.py -d count -s
 # -d mode, but loop certainly `count` times, and save every generated data pair
 parser.add_argument("-s", "--save", action="store_true")
 argv = parser.parse_args()

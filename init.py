@@ -18,10 +18,10 @@ import shutil
 import subprocess
 from pathlib import Path
 
-# > python3 init.py
+# > init.py
 # create necessary folders and files for future use, if those folders and files already exist, then nothing happens
 parser = argparse.ArgumentParser(add_help=False)
-# > python3 init.py -t count
+# > init.py -t count
 #                        ↑ can be empty, defaults to 0, setting a value < 0 is equivalent to setting 0
 #                          can be floating-point numbers, e.g. 1e2
 # if count is 0, reset test/data folder to its initial state

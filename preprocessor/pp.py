@@ -18,18 +18,18 @@ import re
 import subprocess
 from pathlib import Path
 
-# > python3 pp.py
+# > pp.py
 # expand all #include <***.hpp> directives in sol.cpp, output the result into sub.cpp
 parser = argparse.ArgumentParser(add_help=False)
-# > python3 pp.py -t
+# > pp.py -t
 # select the target compiler, -t gcc or -t msvc, defaults to gcc
 # -t msvc when you want to debug your program in Visual Studio (only support template/sol.cpp)
 parser.add_argument("-t", "--target", default="gcc", choices=["gcc", "msvc"])
-# > python3 pp.py -m
+# > pp.py -m
 # add `#define IS_ONE_INPUT_MULTIPLE_TESTS 1` at the beginning of sub.cpp
 # see template/sol.cpp for the usage of this macro
 parser.add_argument("-m", "--multiple", action="store_true")
-# > python3 pp.py -r
+# > pp.py -r
 # add `#define NDEBUG` at the beginning of sub.cpp
 # used to disable C-style asserts (https://en.cppreference.com/w/cpp/error/assert.html), meanwhile also enable
 # `#define IS_IN_DEBUG_MODE 0` from <macro/is_in_debug_mode.hpp>

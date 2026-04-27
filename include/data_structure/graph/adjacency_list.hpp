@@ -66,18 +66,27 @@ class adjacency_list {
       adjacency_list* p;
       int e;
 
-      T operator *() const { return {p->g[e], p->w[e]}; }
+      T operator *() const {
+        return {p->g[e], p->w[e]};
+      }
 
       I& operator ++() {
         e = p->x[e];
         return *this;
       }
 
-      bool operator !=(const I& o) const { return e != o.e; }
+      bool operator !=(const I& o) const {
+        return e != o.e;
+      }
     };
 
-    I begin() const { return I {p, e}; }
-    I end() const { return I {p, 0}; }
+    I begin() const {
+      return I {p, e};
+    }
+
+    I end() const {
+      return I {p, 0};
+    }
   };
 
 public:
@@ -90,7 +99,9 @@ public:
     w[s] = t;
   }
 
-  R neighbors(int u) { return R {this, f[u]}; }
+  R neighbors(int u) {
+    return R {this, f[u]};
+  }
 
   template <class F = less<T>>
   void sort_neighbors(int u, F&& c = less<T> {}) {

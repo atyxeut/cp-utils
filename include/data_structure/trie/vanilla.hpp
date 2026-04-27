@@ -70,8 +70,13 @@ public:
     ++e[i];
   }
 
-  int count(Ib_& S) { return I<0>(S); }
-  int count_has_prefix(Ib_& S) { return I<1>(S); }
+  int count(Ib_& S) {
+    return I<0>(S);
+  }
+
+  int count_has_prefix(Ib_& S) {
+    return I<1>(S);
+  }
 
   void erase(Ib_& S) {
     if (count(S)) {

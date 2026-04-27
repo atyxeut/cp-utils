@@ -57,9 +57,15 @@ struct weighted_union_find {
     }
   }
 
-  int size(int x) { return -f[find(x)]; }
+  int size(int x) {
+    return -f[find(x)];
+  }
 
-  bool connected(int x, int y) { return find(x) == find(y); }
+  bool connected(int x, int y) {
+    return find(x) == find(y);
+  }
 
-  W query(int x, int y) { return connected(x, y) ? w[x] - w[y] : null; }
+  W query(int x, int y) {
+    return connected(x, y) ? w[x] - w[y] : null;
+  }
 };

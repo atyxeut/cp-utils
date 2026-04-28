@@ -2,11 +2,13 @@
 
 using namespace std;
 
+constexpr int arr_len = int(1e6) + 1;
+
 void solve();
 
 int main() {
-  ios::sync_with_stdio(0);
-  cin.tie(0);
+  ios::sync_with_stdio(false);
+  cin.tie(nullptr);
 
   int t = 1;
   // cin >> t;

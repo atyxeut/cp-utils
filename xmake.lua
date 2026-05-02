@@ -22,6 +22,7 @@ set_toolchains("gcc")
 
 if is_host("windows") then
   set_config("plat", "mingw")
+  add_syslinks("stdc++exp")
 elseif is_host("macosx") then
   -- gcc-14 from Homebrew
   local gcc_path = "/usr/local/opt/gcc@14/bin/g++-14" --`usr` is the username

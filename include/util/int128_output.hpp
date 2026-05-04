@@ -18,7 +18,7 @@
 #include <algorithm>
 #include <iostream>
 
-#include <always.hpp>
+#include <core.hpp>
 
 using I1_ = ostream;
 

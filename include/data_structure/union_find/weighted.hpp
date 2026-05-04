@@ -15,7 +15,7 @@
 
 #pragma once
 
-#include <always.hpp>
+#include <core.hpp>
 
 // W is an integral
 template <class W>

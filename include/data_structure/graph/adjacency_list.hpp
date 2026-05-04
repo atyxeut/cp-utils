@@ -17,7 +17,7 @@
 
 #include <algorithm>
 
-#include <always.hpp>
+#include <core.hpp>
 
 template <class W = int>
 struct out_edge {

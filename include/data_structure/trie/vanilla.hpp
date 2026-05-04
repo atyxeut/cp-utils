@@ -17,7 +17,7 @@
 
 #include <cstring>
 
-#include <always.hpp>
+#include <core.hpp>
 
 // N is the total count of nodes this trie is allowed to have
 // C is the total count of distinct characters that will appear

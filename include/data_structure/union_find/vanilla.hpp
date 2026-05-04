@@ -15,7 +15,7 @@
 
 #pragma once
 
-#include <always.hpp>
+#include <core.hpp>
 
 struct union_find {
   // if f[i] >= 0: f[i] is the set that i is in

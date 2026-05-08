@@ -103,17 +103,17 @@ void solve();
 
 #include <customize.hpp>
 
-/** other custom header **/
+/** other custom headers **/
 
-/** other custom header **/
+/** other custom headers **/
 
 int main() {
   ios::sync_with_stdio(0);
   cin.tie(0);
 #if IS_ONE_INPUT_MULTIPLE_TESTS
-  int t;
-  is >> t;
-  while (t--)
+  int _;
+  is >> _;
+  while (_--)
     solve();
 #else
   solve();

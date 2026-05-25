@@ -3,7 +3,7 @@
 # misc settings
 Language: Cpp
 Standard: Latest
-ColumnLimit: 60
+ColumnLimit: 120
 IndentWidth: 2
 ContinuationIndentWidth: 2
 UseTab: Never
@@ -60,7 +60,7 @@ IndentGotoLabels: false
 
 # function
 AlignAfterOpenBracket: BlockIndent
-AllowShortFunctionsOnASingleLine: Empty
+AllowShortFunctionsOnASingleLine: Inline
 BinPackArguments: true
 AllowAllArgumentsOnNextLine: true
 BinPackParameters: BinPack

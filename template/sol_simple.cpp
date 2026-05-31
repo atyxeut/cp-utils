@@ -2,7 +2,7 @@
 
 using namespace std;
 
-constexpr int len_ = int(1e6) + 1;
+constexpr int $N = int(1e6) + 1;
 
 void solve();
 

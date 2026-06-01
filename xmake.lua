@@ -34,7 +34,7 @@ end
 target("build-test")
   set_default(false)
   set_kind("binary")
-  add_files("template/sol_simple.cpp")
+  add_files("template/simple_sol.cpp")
 target_end()
 
 target("sol")

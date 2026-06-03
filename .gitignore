@@ -10,6 +10,7 @@
 !.clangd
 !.clang-tidy
 
+!Makefile
 !xmake.lua
 !init.py
 !run.py

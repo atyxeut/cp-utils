@@ -5,8 +5,7 @@ Diagnostics:
       misc-unused-alias-decls,
       misc-unused-using-decls,
       type_unsupported,
-      shift-op-parentheses,
-      dollar-in-identifier-extension,
+      shift-op-parentheses
     ]
 
 CompileFlags:

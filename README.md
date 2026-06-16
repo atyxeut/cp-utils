@@ -1,6 +1,6 @@
 ## About
 
-A competitive programming library only for GCC.
+A competitive programming library for GCC.
 
 ## License
 

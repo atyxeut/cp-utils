@@ -19,8 +19,7 @@ parser.add_argument("-t", "--target", default="gcc", choices=["gcc", "msvc"])
 parser.add_argument("-m", "--multiple", action="store_true")
 # > pp.py -r
 # add `#define NDEBUG` at the beginning of sub.cpp
-# used to disable C-style asserts (https://en.cppreference.com/w/cpp/error/assert.html), meanwhile also enable
-# `#define IS_IN_DEBUG_MODE 0` from <macro/is_in_debug_mode.hpp>
+# used to disable C-style asserts, meanwhile also enable `#define IS_IN_DEBUG_MODE 0` from <macro/is_in_debug_mode.hpp>
 parser.add_argument("-r", "--release", action="store_true")
 argv = parser.parse_args()
 

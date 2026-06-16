@@ -19,7 +19,7 @@ elseif is_host("macosx") then
   set_toolset("ld", gcc_path)
 end
 
-target("build-test")
+target("init")
   set_default(false)
   set_kind("binary")
   add_files("template/simple_sol.cpp")
@@ -31,7 +31,7 @@ target("sol")
   set_optimize("faster")
 target_end()
 
-target("sol-debug")
+target("sol.debug")
   set_default(false)
   set_kind("binary")
   add_files("sol.cpp")

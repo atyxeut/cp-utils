@@ -8,9 +8,8 @@ from pathlib import Path
 
 # > run.py
 # 1. execute preprocessor/pp.py, -t gcc -r are passed to it, you can choose whether to pass -m
-# 2. for every xxx.in/xxx.out pair from `testdata_dir_path`, use the content of xxx.in as input, test if the output of
-#    sol.cpp is the same as the content of xxx.out (after removing trailing white characters), write the information
-#    into `log_txt_path`
+# 2. for every xxx.in/xxx.out pair from `testdata_dir_path`, use the content of xxx.in as input, test if the output of sol.cpp is the same
+#    as the content of xxx.out (after removing trailing white characters), write the information into `log_txt_path`
 parser = argparse.ArgumentParser(add_help=False)
 parser.add_argument("-m", "--multiple", action="store_true")
 # > run.py -d count
@@ -19,9 +18,8 @@ parser.add_argument("-m", "--multiple", action="store_true")
 #                         3. must be positive
 # do the following things `count` times:
 # 1. generate a piece of data using gen.cpp
-# 2. let sol.cpp and std.cpp both take this data as input, and compare the output of them, if the two outputs differ,
-#    save the input and the output of std.cpp into `testdata_dir_path`, then write the information into `log_txt_path`,
-#    and terminate the loop
+# 2. let sol.cpp and std.cpp both take this data as input, and compare the output of them, if the two outputs differ, save the input and
+#    the output of std.cpp into `testdata_dir_path`, then write the information into `log_txt_path`, and terminate the loop
 parser.add_argument("-d", "--diff", metavar="count", nargs="?", const=50, type=float)
 # > run.py -d count -s
 # -d mode, but loop certainly `count` times, and save every generated data pair
@@ -112,9 +110,7 @@ def normal_mode(tested_cnt: int = 0):
         log_file.seek(2)
         if content and content[-1] != "\n":
           log_file.write("\n")
-        log_file.write(
-          f"test {tested_cnt} ({testcase_in_file_path.name}), {sol_execution_time:.3f}ms, failed:\n{comp_result}\n"
-        )
+        log_file.write(f"test {tested_cnt} ({testcase_in_file_path.name}), {sol_execution_time:.3f}ms, failed:\n{comp_result}\n")
 
   print("done")
 

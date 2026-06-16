@@ -17,7 +17,7 @@ template <class W>
 using Ic_ = out_edge<W>;
 
 template <class W>
-bool operator <(const Ic_<W>& x, const Ic_<W>& y) {
+bool operator<(const Ic_<W>& x, const Ic_<W>& y) {
   return x.v < y.v;
 }
 
@@ -54,27 +54,19 @@ class adjacency_list {
       adjacency_list* p;
       int e;
 
-      T operator *() const {
-        return {p->g[e], p->w[e]};
-      }
+      T operator*() const { return {p->g[e], p->w[e]}; }
 
-      I& operator ++() {
+      I& operator++() {
         e = p->x[e];
         return *this;
       }
 
-      bool operator !=(const I& o) const {
-        return e != o.e;
-      }
+      bool operator!=(const I& o) const { return e != o.e; }
     };
 
-    I begin() const {
-      return I {p, e};
-    }
+    I begin() const { return I{p, e}; }
 
-    I end() const {
-      return I {p, 0};
-    }
+    I end() const { return I{p, 0}; }
   };
 
 public:
@@ -87,17 +79,15 @@ public:
     w[s] = t;
   }
 
-  R neighbors(int u) {
-    return R {this, f[u]};
-  }
+  R neighbors(int u) { return R{this, f[u]}; }
 
   template <class F = less<T>>
-  void sort_neighbors(int u, F&& c = less<T> {}) {
+  void sort_neighbors(int u, F&& c = less<T>{}) {
     int k = 0, e = f[u];
     for (; e; e = x[e])
       b[k++] = e;
     if (k) {
-      sort(b, b + k, [this, &c](int x, int y) { return c(T {g[x], w[x]}, T {g[y], w[y]}); });
+      sort(b, b + k, [this, &c](int x, int y) { return c(T{g[x], w[x]}, T{g[y], w[y]}); });
       f[u] = b[0];
       for (int i = 0; i + 1 < k; ++i)
         x[b[i]] = b[i + 1];

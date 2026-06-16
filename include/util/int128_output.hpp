@@ -10,7 +10,7 @@
 
 using I1_ = ostream;
 
-I1_& operator <<(I1_& o, u128 n) {
+I1_& operator<<(I1_& o, u128 n) {
   if (!n)
     return o << 0;
 
@@ -21,7 +21,7 @@ I1_& operator <<(I1_& o, u128 n) {
   return o << b;
 }
 
-I1_& operator <<(I1_& o, i128 n) {
+I1_& operator<<(I1_& o, i128 n) {
   if (n == I7_<i128>::min())
     return o << '-' << u128(n);
   if (n < 0)

@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-constexpr int NN = int(1e6) + 1;
+constexpr int NN = 1e6 + 1;
 
 void solve();
 

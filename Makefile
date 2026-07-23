@@ -7,18 +7,32 @@ a23: sol.cpp
 1: 1.cpp
 	g++ -o a 1.cpp -std=c++11 -O2
 
+123: 1.cpp
+	g++ -o a 1.cpp -std=c++23 -O2
+
 2: 2.cpp
 	g++ -o a 2.cpp -std=c++11 -O2
+
+223: 2.cpp
+	g++ -o a 2.cpp -std=c++23 -O2
 
 3: 3.cpp
 	g++ -o a 3.cpp -std=c++11 -O2
 
+323: 3.cpp
+	g++ -o a 3.cpp -std=c++23 -O2
+
 4: 4.cpp
 	g++ -o a 4.cpp -std=c++11 -O2
+
+423: 4.cpp
+	g++ -o a 4.cpp -std=c++23 -O2
 
 5: 5.cpp
 	g++ -o a 5.cpp -std=c++11 -O2
 
+523: 5.cpp
+	g++ -o a 5.cpp -std=c++23 -O2
+
 clean:
 	rm -f a
-	rm -f a23
